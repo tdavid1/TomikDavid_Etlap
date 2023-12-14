@@ -17,7 +17,13 @@
                 <Button Content="Új étel felvétele" Width="150" Click="Uj_Felvetele"/>
                 <Button Content="Törölés" Width="150" Click="Delete"/>
             </StackPanel>
-            <DataGrid x:Name="EtlapTable"  d:ItemsSource="{d:SampleData ItemCount=5}"></DataGrid>
+            <DataGrid x:Name="EtlapTable"  d:ItemsSource="{d:SampleData ItemCount=5}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Név" Binding="{Binding Nev}"/>
+                    <DataGridTextColumn Header="Ár" Binding="{Binding Ar}"/>
+                    <DataGridTextColumn Header="Kategoria" Binding="{Binding Kategoria}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </DockPanel>
         <TextBlock Grid.Row="1" x:Name="leiras" VerticalAlignment="Bottom"></TextBlock>
         <Grid Grid.Row="2">
