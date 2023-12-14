@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Etlap"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="600">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <DockPanel VerticalAlignment="Top">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Button Content="Új étel felvétele" Width="150" Click="Uj_Felvetele"/>
+                <Button Content="Törölés" Width="150" Click="Delete"/>
+            </StackPanel>
+            <DataGrid x:Name="EtlapTable"  d:ItemsSource="{d:SampleData ItemCount=5}"></DataGrid>
+        </DockPanel>
+        <TextBlock Grid.Row="1" x:Name="leiras" VerticalAlignment="Bottom"></TextBlock>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="adott" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="szazalek" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+            <Label Grid.Row="0" Content="Adot áremelés:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <Label Grid.Row="1" Content="Százalékos:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <Button Grid.Column="3" Grid.Row="0" Content="Emelés" Click="a_emeles"/>
+            <Button Grid.Column="3" Grid.Row="1" Content="Emelés" Click="sz_emeles"/>
+        </Grid>
     </Grid>
 </Window>
